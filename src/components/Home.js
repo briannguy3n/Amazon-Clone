@@ -25,7 +25,7 @@ const Home = () => {
           <Product
             id="49538094"
             title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
-            price={239.0}
+            price={239.99}
             rating={4}
             image="https://www.kenwoodworld.com/WebImage/Global/New%20products/1_KW_kMix_Red_800x600.jpg"
           />

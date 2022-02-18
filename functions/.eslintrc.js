@@ -9,8 +9,5 @@ module.exports = {
     node: true,
   },
   extends: ["eslint:recommended", "google"],
-  rules: {
-    quotes: ["error", "double"],
-    "max-len": ["error", { code: 140 }],
-  },
+  rules: {quotes: ["error", "double"]},
 };

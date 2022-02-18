@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Checkout from "./components/Checkout";
 import Login from "./components/Login";
 import Payment from "./components/Payment";
+import Orders from "./components/Orders";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { auth } from "./firebase-config";
@@ -60,6 +61,16 @@ function App() {
               </>
             }
           />
+
+          <Route
+            path="/orders"
+            element={
+              <>
+                <Orders />
+              </>
+            }
+          />
+
           <Route
             path="/payment"
             element={
