@@ -16,24 +16,23 @@ const Checkout = () => {
           alt=""
         />
 
-        <div>
-          <h3>Hello, {user?.email}</h3>
-          <h2 className="checkout_title">Your Shopping Basket</h2>
+        <h2>Hello, {!user ? "Guest" : user.email}</h2>
+        <h3 className="checkout_title">Your Shopping Basket</h3>
+
+        <div className="checkout_productGroup">
+          {basket.map((item) => (
+            <CheckoutProduct
+              id={item.id}
+              title={item.title}
+              image={item.image}
+              rating={item.rating}
+            />
+          ))}
         </div>
       </div>
 
       <div className="checkout_right">
         <Subtotal />
-        <h2>The subtotal will go here</h2>
-
-        {basket.map((item) => (
-          <CheckoutProduct
-            id={item.id}
-            title={item.title}
-            image={item.image}
-            rating={item.rating}
-          />
-        ))}
       </div>
     </div>
   );
