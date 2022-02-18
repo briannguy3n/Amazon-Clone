@@ -1,56 +1,50 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../firebase-config";
+import { useStateValue } from "../StateProvider";
 import "../styles/Login.css";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const register = async (e) => {
-    try {
-      const user = await createUserWithEmailAndPassword();
-    } catch (error) {
-      console.log(error.message);
-    }
+    e.preventDefault();
+    auth.createUserWithEmailAndPassword(auth, email, password).then((auth) => {
+      navigate("/");
+    });
+
+    // try {
+    //   const user = await createUserWithEmailAndPassword(auth, email, password);
+    //   console.log(user);
+    //   if (user) {
+    //     navigate("/");
+    //   }
+    // } catch (error) {
+    //   console.log(error.message);
+    // }
   };
 
-  const signIn = async (e) => {};
-
-  // const signIn = (e) => {
-  //   e.preventDefault();
-  //   const auth = getAuth();
-  //   signInWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //       // Signed in
-  //       const user = userCredential.user;
-  //       // ...
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //     });
-
-  //   // some fancy firebase login stuff
-  // };
-
-  // const register = (e) => {
-  //   e.preventDefault();
-  //   // do some fancy firebase register stuff
-
-  //   const auth = getAuth();
-  //   createUserWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //       // Signed in
-  //       const user = userCredential.user;
-  //       // ...
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       // ..
-  //     });
-  // };
+  const signIn = async (e) => {
+    e.preventDefault();
+    auth.signInWithEmailAndPassword(auth, email, password).then((auth) => {
+      navigate("/");
+    });
+    // try {
+    //   const user = await signInWithEmailAndPassword(auth, email, password);
+    //   console.log(user);
+    //   if (user) {
+    //     navigate("/");
+    //   }
+    // } catch (error) {
+    //   console.log(error.message);
+    // }
+  };
 
   return (
     <div className="login">
