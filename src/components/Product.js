@@ -25,8 +25,10 @@ function Product({ id, title, image, price, rating }) {
       <div className="product_info">
         <p>{title}</p>
         <p className="product_price">
-          <small>$</small>
-          <strong>{price}</strong>
+          <p>
+            <small>$</small>
+            {price}
+          </p>
         </p>
         <div className="product_rating">
           {Array(rating)
