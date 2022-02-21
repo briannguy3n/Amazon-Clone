@@ -55,7 +55,7 @@ const Header = () => {
 
         <Link to="/checkout">
           <div className="header_optionBasket">
-            <ShoppingBasketIcon />
+            <ShoppingBasketIcon sx={{ height: 20 }} />
             <span className="header_optionLineTwo header_basketCount">
               {basket?.length}
             </span>
