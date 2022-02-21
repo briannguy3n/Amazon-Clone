@@ -5,6 +5,7 @@ import Checkout from "./components/Checkout";
 import Login from "./components/Login";
 import Payment from "./components/Payment";
 import Orders from "./components/Orders";
+import { useMediaQuery } from "react-responsive";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { auth } from "./firebase-config";
@@ -51,7 +52,6 @@ function App() {
               </>
             }
           />
-
           <Route
             path="/checkout"
             element={
@@ -61,7 +61,6 @@ function App() {
               </>
             }
           />
-
           <Route
             path="/orders"
             element={
@@ -70,7 +69,6 @@ function App() {
               </>
             }
           />
-
           <Route
             path="/payment"
             element={
@@ -82,7 +80,6 @@ function App() {
               </>
             }
           />
-
           <Route
             path="/"
             element={
